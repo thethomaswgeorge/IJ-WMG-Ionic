@@ -1,0 +1,7 @@
+{
+  "name": "IJ-Ionic-New",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
