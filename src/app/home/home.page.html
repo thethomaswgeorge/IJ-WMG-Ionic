@@ -1,20 +1,46 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Today's Insurance News</ion-title>
     </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <app-article-container>
+        <app-row-article [articles]="articles" limit="2"></app-row-article>
+        <app-article-container-button text="View More News" href="region/national"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="Picked For You">
+        <app-row-article [articles]="pickedForYou" limit="2"></app-row-article>
+        <app-article-container-button text="View More News"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="National News">
+        <app-row-article [articles]="national" limit="2" [allowImages]="false"></app-row-article>
+        <app-article-container-button text="View More News" href="region/national"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="East News">
+        <app-row-article [articles]="east" limit="2" [allowImages]="false"></app-row-article>
+        <app-article-container-button text="View More News" href="region/east"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="West News">
+        <app-row-article [articles]="west" limit="2" [allowImages]="false"></app-row-article>
+        <app-article-container-button text="View More News" href="region/west"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="Southeast News">
+        <app-row-article [articles]="southeast" limit="2" [allowImages]="false"></app-row-article>
+        <app-article-container-button text="View More News" href="region/southeast"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="South Central News">
+        <app-row-article [articles]="southcentral" limit="2" [allowImages]="false"></app-row-article>
+        <app-article-container-button text="View More News" href="region/southcentral"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="Midwest News">
+        <app-row-article [articles]="midwest" limit="2" [allowImages]="false"></app-row-article>
+        <app-article-container-button text="View More News" href="region/midwest"></app-article-container-button>
+    </app-article-container>
+    <app-article-container articleHeader="International News">
+        <app-row-article [articles]="international" limit="2" [allowImages]="false"></app-row-article>
+        <app-article-container-button href="region/international" text="View More News"></app-article-container-button>
+    </app-article-container>
 </ion-content>

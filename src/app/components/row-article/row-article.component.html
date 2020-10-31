@@ -1,0 +1,11 @@
+<div *ngFor="let article of articles; let i = index">
+  <div *ngIf="i < limit"  class="article-row">
+    <a (click)="navigateTo(article.id)"  title="{{ article.title }}">
+      <div class="image-side" *ngIf="!!allowImages && !!article.image" style="background-image: url('{{ article.image }}')">
+      </div>
+      <div class="content">
+        <span>{{ article.title }} {{ allowImages }}</span>
+      </div>
+    </a>
+  </div>
+</div>

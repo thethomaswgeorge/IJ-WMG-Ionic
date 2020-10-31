@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Article</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="share" (click)="openShareWindow()">SHARE</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!!article">
+  <div class="article-image" style="background-image: url('{{ article.image }}')"></div>
+  <h1 class="article-title ion-padding-horizontal">{{ article.title }}</h1>
+  <div class="author ion-padding-horizontal" *ngIf="!!article.author">By {{ article.author }}</div>
+  <div class="date-published ion-padding-horizontal" *ngIf="!!article.createdOn">{{ article.createdOn }}</div>
+  <div class="content ion-padding" *ngIf="!!article.content" [innerHTML]="article.content">
+  </div>
+  <app-article-container articleHeader="More News">
+  </app-article-container>
+</ion-content>

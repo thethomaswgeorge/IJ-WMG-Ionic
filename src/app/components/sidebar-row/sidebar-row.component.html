@@ -1,0 +1,5 @@
+<ion-item class="sidebar-row">
+  <ion-icon *ngIf="!!startIcon" name="{{ startIcon }}" slot="start"></ion-icon>
+  <ion-label>{{ text }}</ion-label>
+  <ion-icon *ngIf="!!endIcon" name="{{ endIcon }}" slot="end"></ion-icon>
+</ion-item>
