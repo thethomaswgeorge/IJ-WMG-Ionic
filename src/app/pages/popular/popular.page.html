@@ -1,12 +1,50 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Popular</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Most Popular</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-tabs>
+        <ion-tab-bar slot="top">
+            <ion-tab-button (click)="changeList('day')">
+                <ion-label><h3>Today</h3></ion-label>
+            </ion-tab-button>
 
+            <ion-tab-button (click)="changeList('week')">
+                <ion-label><h3>This Week</h3></ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button (click)="changeList('month')">
+                <ion-label><h3>This Month</h3></ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+    <div class="spacer"></div>
+    <app-article-container *ngIf="currentList == 'day'">
+        <app-row-article [articles]="day" [limit]="10" [allowImages]="false"></app-row-article>
+    </app-article-container>
+    <app-article-container *ngIf="currentList == 'week'">
+        <app-row-article [articles]="week" [limit]="10" [allowImages]="false"></app-row-article>
+    </app-article-container>
+
+    <app-article-container *ngIf="currentList == 'month'">
+        <app-row-article [articles]="month" [limit]="10" [allowImages]="false"></app-row-article>
+    </app-article-container>
+    <!-- Footer -->
+    <div class="footer-options ion-text-center ion-padding">
+        <span class="ion-padding">See most popular for:</span>
+        <ion-button color="light" class="ion-margin-horizontal" (click)="changeList('day')"
+                    *ngIf="currentList !== 'day'">Today
+        </ion-button>
+        <ion-button color="light" class="ion-margin-horizontal" (click)="changeList('week')"
+                    *ngIf="currentList !== 'week'">This Week
+        </ion-button>
+        <ion-button color="light" class="ion-margin-horizontal" (click)="changeList('month')"
+                    *ngIf="currentList !== 'month'">This Month
+        </ion-button>
+    </div>
 </ion-content>

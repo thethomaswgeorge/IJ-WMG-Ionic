@@ -15,8 +15,23 @@ export class SidebarRowComponent implements OnInit {
   @Input()
   public text = '';
 
+  @Input()
+  public route = '';
+
+  @Input()
+  public expandable = false;
+  expanded = false;
+
+  @Input()
+  public theme = 'default';
+
   constructor() { }
 
   ngOnInit() {}
 
+  expand() {
+    if (!!this.expandable) {
+      this.expanded = !this.expanded;
+    }
+  }
 }

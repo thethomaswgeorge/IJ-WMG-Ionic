@@ -26,6 +26,13 @@ ion-menu-button {
 #container a {
   text-decoration: none;
 }
+ion-item {
+  --background: transparent;
+}
+
+ion-list {
+  background: transparent;
+}
 
 ion-header, ion-toolbar, .header-background {
   --background: #af231c;

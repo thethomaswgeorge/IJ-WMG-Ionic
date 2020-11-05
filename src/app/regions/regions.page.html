@@ -1,11 +1,13 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Region</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ title }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
-
+    <app-article-container>
+        <app-row-article [articles]="articles" limit="20" [allowImages]="false"></app-row-article>
+    </app-article-container>
 </ion-content>

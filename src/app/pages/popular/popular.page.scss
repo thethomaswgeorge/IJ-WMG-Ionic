@@ -32,9 +32,34 @@ ion-header, ion-toolbar, .header-background {
   color: #fff;
   border-color: #831a15;
   background-color: #af231c;
-  background-image: linear-gradient(0deg,#831a15,#831a15 50%,transparent 50%);
+  background-image: linear-gradient(0deg, #831a15, #831a15 50%, transparent 50%);
 
   ion-menu-button {
     color: #fff;
   }
+}
+.spacer {
+  box-sizing: border-box;
+  padding: 25px;
+}
+
+.popular-list-number {
+  margin-right: 10px;
+  margin-bottom: 10px !important;
+  padding: 5px 16px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  border: 2px solid #AF231C;
+  border-radius: 80px;
+  color: #AF231C;
+}
+
+.footer-options {
+  span {
+    display: block;
+  }
+
+  background-color: #700801;
+  color: #fff;
 }

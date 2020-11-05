@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { RegionsPageRoutingModule } from './regions-routing.module';
 
 import { RegionsPage } from './regions.page';
+import { HomePageRoutingModule } from '../home/home-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RegionsPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RegionsPageRoutingModule,
+        HomePageRoutingModule,
+    ],
   declarations: [RegionsPage]
 })
 export class RegionsPageModule {}

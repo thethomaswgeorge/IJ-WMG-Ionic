@@ -3,10 +3,47 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Preferences</ion-title>
+    <ion-title>Reading Preferences</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Reading Preferences</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item (click)="togglePrefs('topics')">
+          <ion-label>Interest Topics</ion-label>
+          <ion-text slot="end">{{ topicLength }}</ion-text>
+        </ion-item>
+        <ion-item (click)="togglePrefs('regions')">
+          <ion-label>Regions</ion-label>
+          <ion-text slot="end">{{ regionLength}}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Alert Preferences</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Breaking News</ion-label>
+          <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>New Stories</ion-label>
+          <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Most Popular</ion-label>
+          <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

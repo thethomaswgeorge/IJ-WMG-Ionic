@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>What are you interested in?</ion-title>
+    </ion-toolbar>
+</ion-header>
+<form action="" [formGroup]="form">
+<ion-list>
+    <ion-item *ngFor="let checkbox of topics; let i = index" formArrayName="checkboxes">
+        <ion-label>{{topics[i].text}}</ion-label>
+        <ion-checkbox [formControlName]="i"> {{ checkbox.text }}</ion-checkbox>
+    </ion-item>
+</ion-list>
+<ion-button expand="block" class="ion-margin" (click)="submit()">Done</ion-button>
+</form>

@@ -4,6 +4,8 @@ import { SidebarSearchComponent } from './components/sidebar-search/sidebar-sear
 import { SidebarRowComponent } from './components/sidebar-row/sidebar-row.component';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { TopicTrendsComponent } from './components/topic-trends/topic-trends.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -14,10 +16,6 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'regions',
-    loadChildren: () => import('./regions/regions.module').then( m => m.RegionsPageModule)
   },
   {
     path: 'region/:region',
@@ -48,7 +46,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/listen/listen.module').then( m => m.ListenPageModule)
   },
   {
-    path: 'search',
+    path: 'search/:search',
     loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
   },
   {
@@ -62,11 +60,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules}),
     IonicModule,
     CommonModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     SidebarSearchComponent,
+      TopicTrendsComponent,
     SidebarRowComponent,
   ],
-  exports: [RouterModule, SidebarSearchComponent, SidebarRowComponent],
+  exports: [RouterModule, SidebarSearchComponent, SidebarRowComponent, TopicTrendsComponent],
 })
 export class AppRoutingModule { }

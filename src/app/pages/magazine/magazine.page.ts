@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticlesService } from '../../../services/articles/articles.service';
 
 @Component({
   selector: 'app-magazine',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./magazine.page.scss'],
 })
 export class MagazinePage implements OnInit {
+  magazines;
 
-  constructor() { }
+  constructor(
+      private as: ArticlesService
+  ) { }
 
   ngOnInit() {
+    this.as.getMagazines( 0, 5).subscribe(val => this.magazines = val);
   }
 
 }

@@ -1,0 +1,22 @@
+.expand-wrapper {
+  transition: max-height 0.4s ease-in-out;
+  overflow: hidden;
+  height: auto;
+}
+
+.collapsed {
+  max-height: 0 !important;
+}
+
+
+ion-label {
+  text-decoration: none;
+  outline: none;
+}
+
+.red {
+  background-color: #af231c;
+  --background-color: #af231c;
+  --background: #af231c;
+  color: var(--ion-text-color, #fff);
+}

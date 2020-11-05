@@ -8,5 +8,16 @@
 </ion-header>
 
 <ion-content>
+  <div *ngFor="let magazine of magazines">
+    <h1 class="ion-padding-horizontal">{{ magazine.post_title }}</h1>
+    <div class=" ion-padding-bottom">
+      <small class="ion-padding-horizontal">{{ magazine.post_date | date }}</small>
+    </div>
 
+    <div *ngFor="let topic of magazine.regions">
+      <app-article-container [articleHeader]="topic.post_title">
+        <app-row-article [articles]="topic.articles" limit="100" [allowImages]="false" [redirectURL]="'magazine'"></app-row-article>
+      </app-article-container>
+    </div>
+  </div>
 </ion-content>

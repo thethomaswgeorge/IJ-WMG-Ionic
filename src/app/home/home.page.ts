@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Article } from '../interfaces/article';
 import { Router } from '@angular/router';
 import { ArticlesService } from '../../services/articles/articles.service';
@@ -8,19 +8,25 @@ import { ArticlesService } from '../../services/articles/articles.service';
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-    articles: Article[] = [];
+export class HomePage implements OnInit{
+    articles;
     pickedForYou: Article[] = [];
     national; day; week; month;
     north; south; east; west;
     international; midwest; southcentral; southeast;
+    hasPicked = false;
 
     constructor(private router: Router,
                 private as: ArticlesService) {
         this.loadArticles();
     }
 
+    ngOnInit() {
+        this.loadArticles();
+    }
+
     public loadArticles() {
+        this.as.getHeadlines('day', 0, 4, '').subscribe(val => this.articles = val);
         this.as.getList('national', 0, 4, '').subscribe(val => this.national = val);
         this.as.getList('month', 0, 4, '').subscribe(val => this.month = val);
         this.as.getList('day', 0, 4, '').subscribe(val => this.day = val);

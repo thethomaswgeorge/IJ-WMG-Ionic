@@ -1,5 +1,6 @@
-<ion-item class="sidebar-row">
-  <ion-icon *ngIf="!!startIcon" name="{{ startIcon }}" slot="start"></ion-icon>
-  <ion-label>{{ text }}</ion-label>
-  <ion-icon *ngIf="!!endIcon" name="{{ endIcon }}" slot="end"></ion-icon>
+<ion-item [className]="(theme === 'red') ? 'red sidebar-row' : 'sidebar-row'">
+    <ion-icon *ngIf="!!startIcon" name="{{ startIcon }}" [routerLink]="route" slot="start"></ion-icon>
+    <ion-label [routerLink]="route">{{ text }}</ion-label>
+    <ion-icon *ngIf="!!endIcon" name="{{ endIcon }}" slot="end" (click)="expand()"></ion-icon>
 </ion-item>
+<ng-content *ngIf="!!expanded"></ng-content>

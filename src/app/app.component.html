@@ -1,27 +1,48 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <div class="logo-header">
-            <img src="../assets/ij-horiz.png" alt="">
-          </div>
-           <app-sidebar-search></app-sidebar-search>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <app-sidebar-row [startIcon]="p.icon" [text]="p.title" [routerLink]="p.url">
-            </app-sidebar-row><!--
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>-->
-          </ion-menu-toggle>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" menuId="slidingMenu" type="overlay">
+            <ion-content>
+                <ion-list id="inbox-list">
+                    <div class="logo-header">
+                        <img src="../assets/ij-horiz.png" alt="">
+                    </div>
+                    <form [formGroup]="form">
+                        <ion-searchbar formControlName="search" (keyup.enter)="onEnter()"></ion-searchbar>
+                    </form>
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                        <app-sidebar-row [startIcon]="p.icon" [text]="p.title" [route]="p.url">
+                        </app-sidebar-row>
+                    </ion-menu-toggle>
 
-          <app-sidebar-row routerLink="regions/" endIcon="add-circle" text="Browse By Region"></app-sidebar-row>
-          <app-sidebar-row routerLink="topics/" endIcon="add-circle" text="Browse By Topic"></app-sidebar-row>
-        </ion-list>
-
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
+                    <app-sidebar-row theme="red" route="regions" endIcon="add-circle" text="Browse By Region"
+                                     [expandable]="true">
+                        <!-- List all chosen regions -->
+                        <div>
+                            <ion-menu-toggle auto-hide="false" *ngFor="let p of regions; let i = index">
+                                <app-sidebar-row></app-sidebar-row>
+                            </ion-menu-toggle>
+                            <app-sidebar-row (click)="closeSidebar()" startIcon="cog-outline" route="preferences"
+                                             text="Manage Regions"></app-sidebar-row>
+                        </div>
+                    </app-sidebar-row>
+                    <app-sidebar-row theme="red" route="topics" endIcon="add-circle" text="Browse By Topic"
+                                     [expandable]="true">
+                        <!-- List all chosen topics -->
+                        <div>
+                            <ion-menu-toggle auto-hide="false" *ngFor="let p of topics; let i = index">
+                                <app-sidebar-row></app-sidebar-row>
+                            </ion-menu-toggle>
+                            <app-sidebar-row (click)="closeSidebar()" startIcon="cog-outline" route="preferences"
+                                             text="Manage Topics"></app-sidebar-row>
+                        </div>
+                    </app-sidebar-row>
+                    <ion-item lines="none">
+                        <ion-label>Dark Mode</ion-label>
+                        <ion-toggle (ionChange)="onClick($event)" slot="end"></ion-toggle>
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
 </ion-app>

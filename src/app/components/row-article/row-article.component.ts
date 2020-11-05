@@ -18,13 +18,16 @@ export class RowArticleComponent implements OnInit {
   @Input()
   public allowImages = true;
 
+  @Input()
+  public redirectURL = 'article';
+
   constructor(private router: Router) {
   }
 
   ngOnInit() {
-    console.log(this.articles);}
+  }
 
   navigateTo(id: number) {
-    this.router.navigate(['article', id]);
+      this.router.navigate([`${this.redirectURL}`, id]);
   }
 }
