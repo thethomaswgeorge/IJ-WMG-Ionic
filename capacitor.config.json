@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "IJ-Ionic-New",
+  "appName": "Insurance Journal",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

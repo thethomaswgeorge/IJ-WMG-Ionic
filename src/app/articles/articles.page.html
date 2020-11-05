@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content *ngIf="!!article">
-  <div class="article-image" style="background-image: url('{{ article.image }}')"></div>
+  <img *ngIf="!!article.image" [src]="article.image">
   <h1 class="article-title ion-padding-horizontal">{{ article.title }}</h1>
   <div class="author ion-padding-horizontal" *ngIf="!!article.author">By {{ article.author }}</div>
   <div class="date-published ion-padding-horizontal" *ngIf="!!article.createdOn">{{ article.createdOn }}</div>
