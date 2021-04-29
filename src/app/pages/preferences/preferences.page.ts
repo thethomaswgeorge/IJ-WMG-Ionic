@@ -3,7 +3,6 @@ import { ModalController } from '@ionic/angular';
 import { TopicsService } from '../../../services/topics/topics.service';
 import { TopicTrendsComponent } from '../../components/topic-trends/topic-trends.component';
 import { RegionsService } from '../../../services/regions/regions.service';
-import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-preferences',
@@ -18,7 +17,6 @@ export class PreferencesPage implements OnInit {
         public modalCtrl: ModalController,
         public topics: TopicsService,
         public regions: RegionsService,
-        public storage: Storage,
     ) {
     }
 
@@ -27,19 +25,19 @@ export class PreferencesPage implements OnInit {
     }
 
     public getPrefs() {
-        this.storage.get('topics').then(val => {
-            if (!!val) {
-                val = JSON.parse(val);
-                this.topicLength = val.length;
-            }
-        });
-
-        this.storage.get('regions').then(val => {
-            if (!!val) {
-                val = JSON.parse(val);
-                this.regionLength = val.length;
-            }
-        });
+        // this.storage.get('topics').then(val => {
+        //     if (!!val) {
+        //         val = JSON.parse(val);
+        //         this.topicLength = val.length;
+        //     }
+        // });
+        //
+        // this.storage.get('regions').then(val => {
+        //     if (!!val) {
+        //         val = JSON.parse(val);
+        //         this.regionLength = val.length;
+        //     }
+        // });
     }
 
     public async togglePrefs(selection: string) {
@@ -54,7 +52,7 @@ export class PreferencesPage implements OnInit {
 
         modal.onDidDismiss().then((data) => {
             console.log('saved to ', (selection === 'topics') ? 'topics' : 'regions');
-            this.storage.set((selection === 'topics') ? 'topics' : 'regions', JSON.stringify(data.data));
+            // this.storage.set((selection === 'topics') ? 'topics' : 'regions', JSON.stringify(data.data));
         });
 
         await modal.present();

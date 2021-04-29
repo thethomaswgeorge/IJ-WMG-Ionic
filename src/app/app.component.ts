@@ -4,7 +4,6 @@ import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HttpClient } from '@angular/common/http';
-import { Storage } from '@ionic/storage';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -57,7 +56,6 @@ export class AppComponent implements OnInit {
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
         private http: HttpClient,
-        private storage: Storage,
         private menu: MenuController,
         private router: Router,
     ) {
@@ -70,15 +68,15 @@ export class AppComponent implements OnInit {
             this.splashScreen.hide();
         });
 
-        this.storage.get('topics').then(val => {
-            this.topicLength =  val.length;
-        });
-
-        this.storage.get('regions').then(val => {
-            if (!!val) {
-                this.regionLength = val.length;
-            }
-        });
+        // this.storage.get('topics').then(val => {
+        //     this.topicLength =  val.length;
+        // });
+        //
+        // this.storage.get('regions').then(val => {
+        //     if (!!val) {
+        //         this.regionLength = val.length;
+        //     }
+        // });
     }
 
     ngOnInit() {

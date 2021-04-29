@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule } from '@ionic/storage';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -22,7 +21,6 @@ import { ReactiveFormsModule } from '@angular/forms';
         IonicModule.forRoot(),
         AppRoutingModule,
         HttpClientModule,
-        IonicStorageModule.forRoot(),
         ReactiveFormsModule,
     ],
     providers: [
@@ -31,6 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     ],
     bootstrap: [AppComponent],
+    exports: [
+
+    ]
 })
 export class AppModule {
 }
